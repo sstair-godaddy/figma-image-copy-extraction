@@ -1,0 +1,20 @@
+# 🚨 IMPORTANT: READ BEFORE ANY OPERATIONS 🚨
+
+## For ALL AI Agents Working on This Project:
+
+### 📋 MANDATORY FIRST STEPS:
+1. **Read README.md Agent Instructions section** (contains workflow and role definitions)
+2. **For Figma operations**: Follow `.cursor/rules/Figma_Image_Agent.mdc` complete workflow
+3. **For code changes**: Follow `.cursor/rules/Agent_Standards.mdc` guidelines
+
+### 🎯 Quick Reference:
+- **Figma text extraction**: Must read `.cursor/rules/Figma_Image_Agent.mdc` FIRST
+- **Code modifications**: Must follow Agent_Standards cursor rules
+- **DO NOT** run commands without reading appropriate rule files first
+
+### ⚠️ Critical Notes:
+- Figma extractions require text combination logic (not raw element listing)
+- All changes require manual approval before committing
+- Follow role-specific workflows strictly
+
+**No exceptions - these rules ensure quality and consistency.** 

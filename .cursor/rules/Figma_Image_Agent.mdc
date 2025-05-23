@@ -1,6 +1,33 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
 # Figma Text Extraction Agent
 
 This agent helps you extract text content from Figma designs using the Figma API.
+
+## Prerequisites
+# Figma Text Extraction Agent
+
+This agent helps you extract text content from Figma designs using the Figma API.
+
+## Prerequisites
+# MANDATORY PRE-EXECUTION CHECKLIST
+
+**⚠️ BEFORE RUNNING ANY FIGMA EXTRACTION - COMPLETE THIS CHECKLIST:**
+
+□ **Read this entire Figma_Image_Agent.mdc file**
+□ **Confirm understanding of text combination rules (see Output section)**
+□ **Verify Figma URL format includes node-id parameter**
+□ **Review output formatting requirements**
+□ **Understand that text elements must be logically combined, not just listed**
+
+**Only proceed to execution after completing ALL checklist items above.**
+
+---
+
+# Figma Image Agent Instructions
 
 ## Prerequisites
 
@@ -45,12 +72,14 @@ This agent helps you extract text content from Figma designs using the Figma API
 
 2. **Run the Extraction**
    ```bash
+   # REMEMBER: Read .cursor/rules/Figma_Image_Agent.mdc FIRST
    npm run build
    npm start "your-figma-url-here"
    ```
 
    Example:
    ```bash
+   # REMEMBER: Complete the mandatory checklist above FIRST
    npm start "https://www.figma.com/design/AAVSLBXkUL9s42AEobvwBs/Design?node-id=347-3746"
    ```
 
@@ -58,7 +87,7 @@ This agent helps you extract text content from Figma designs using the Figma API
    - The tool will extract all text elements from the specified node
    - Text will be displayed in numbered order
    - Hidden text elements will be skipped
-   - Use your best judgement to combine copy where it makes sense. For example:
+   - **CRITICAL**: Use your best judgement to combine copy where it makes sense. For example:
 
      Price formatting:
      ```

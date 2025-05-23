@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "start": "node --experimental-specifier-resolution=node dist/figma_copy_extract.js"
+    "start": "node --experimental-specifier-resolution=node dist/figma_copy_extract.js",
+    "// IMPORTANT": "Read README.md Agent Instructions section before running 'start' command",
+    "// FIGMA_RULE": "Must follow .cursor/rules/Figma_Image_Agent.mdc workflow for text extraction"
   },
   "keywords": [],
   "author": "",
