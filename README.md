@@ -95,3 +95,54 @@ The tool will:
 - Keep your Figma access token secure
 - Regularly rotate your access tokens for security
 - Never commit your `.env` file to version control 
+
+## Agent Instructions
+
+This project uses AI agents with specific roles and responsibilities:
+
+### Figma_Image_Agent
+
+**Role**: Application execution and text extraction operations
+
+**Responsibilities**:
+- Execute the Figma text extraction tool
+- Process Figma URLs and extract text content
+- Handle API interactions with Figma
+- Provide clear output of extracted text elements
+- Troubleshoot runtime issues and API errors
+
+**Usage Guidelines**:
+- Always verify Figma URL format before execution
+- Check for required environment variables (FIGMA_ACCESS_TOKEN)
+- Provide numbered, organized output of extracted text
+- Handle both dash and colon node ID formats
+- Report any API errors with clear explanations
+
+**Command Pattern**:
+```bash
+npm start "https://www.figma.com/design/[file-id]/[file-name]?node-id=[node-id]"
+```
+
+### Agent_Standards
+
+**Role**: Codebase updates and modifications
+
+**Responsibilities**:
+- Follow the Agent_Standards cursor rules for all code changes
+- Implement focused, reviewable changes
+- Provide clear communication about proposed modifications
+- Present options with context before making changes
+- Maintain code quality and consistency
+
+**Key Principles**:
+- Keep changes focused (one change, one purpose)
+- Request early feedback before implementation
+- Define clear scope boundaries
+- Break changes into reviewable steps
+- Present before/after examples for clarity
+
+**Reference**: See the Agent_Standards cursor rules for detailed guidelines on code modification processes.
+
+---
+
+**Note**: Do not commit changes automatically. Always review and approve modifications before committing to version control. 
