@@ -1,0 +1,197 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+ # AI Agent Interaction Standards
+
+## Core Principles
+
+1. **Keep Changes Focused**
+   - One change, one purpose
+   - Clear scope boundaries
+   - Easily reviewable chunks
+
+2. **Early Feedback**
+   - Request feedback before making changes
+   - Present options clearly
+   - Show examples when possible
+
+3. **Clear Communication**
+   - Explain what and why
+   - Show before/after examples
+   - Highlight potential impacts
+
+## Change Process
+
+### 1. Initial Assessment
+Before suggesting changes:
+```typescript
+// Current implementation found:
+const Banner = ({ onClose, children }) => {
+  // ... implementation
+};
+
+// Potential improvement:
+// 1. Add proper TypeScript types
+// 2. Use UXCore Banner props
+// 3. Update styling to match UXCore
+
+Would you like me to:
+A. Show the full proposed changes
+B. Explain each change separately
+C. Focus on a specific aspect
+```
+
+### 2. Scope Definition
+Always define clear boundaries:
+```typescript
+// In scope:
+✅ Update Button component to use @ux/button
+✅ Update related prop types
+✅ Update direct styling
+
+// Out of scope (will flag for later):
+❌ Refactor parent components
+❌ Update unrelated components
+❌ Add new features
+```
+
+### 3. Change Implementation
+Break changes into reviewable steps:
+```typescript
+// Step 1: Update imports
+import Button from '@ux/button';
+
+// Review point: Confirm import change before proceeding
+
+// Step 2: Update props
+type Props = {
+  text: string;  // Changed from children
+  design?: 'primary' | 'secondary';
+};
+
+// Review point: Confirm prop structure before proceeding
+```
+
+## Pattern Recognition
+
+### 1. Identifying Patterns
+When finding patterns, present clearly:
+```typescript
+I notice this pattern in several components:
+1. src/components/UIKit/Banner.tsx:
+   - Custom styling instead of UXCore
+   - Non-standard prop names
+
+2. src/components/ConversionBanner/ConversionBannerBase.tsx:
+   - Similar implementation, different approach
+
+Would you like me to:
+1. Show all instances
+2. Propose a standardized approach
+3. Focus on one component first
+```
+
+### 2. Suggesting Improvements
+Present options with context:
+```typescript
+Current approach:
+const [isOpen, setIsOpen] = useState(true);
+const [isDismissable, setIsDismissable] = useState(dismissable);
+
+Option 1 - Combine states:
+const [state, setState] = useState({
+  isOpen: true,
+  isDismissable: dismissable
+});
+
+Option 2 - Use UXCore pattern:
+const { isOpen, onClose } = useBanner({ dismissable });
+
+Which approach would you prefer to explore?
+```
+
+## Refactoring Guidelines
+
+### 1. Step-by-Step Process
+```typescript
+// 1. First, identify the change:
+"I see we're using a custom Button implementation"
+
+// 2. Show the impact:
+"This affects:
+ - 3 direct usages
+ - 2 inherited patterns
+ - 1 style override"
+
+// 3. Propose the smallest valid change:
+"Let's start by updating just the Button props:
+ Before: <Button>{text}</Button>
+ After:  <Button text={text} />"
+
+// 4. Request feedback:
+"Would you like to see this change in one component first?"
+```
+
+### 2. Scope Expansion Requests
+When finding related issues:
+
+```typescript
+While working on the Button component, I noticed:
+1. Inconsistent prop naming:
+   - some use 'onClick'
+   - others use 'handleClick'
+
+2. Mixed style approaches:
+   - direct className usage
+   - styled-components
+   - SCSS modules
+
+Should we:
+A. Note these for later
+B. Include in current changes
+C. Create separate tasks
+```
+
+## Communication Examples
+
+### 1. Proposing Changes
+```
+I suggest updating the Banner component because:
+1. Current: Custom implementation
+2. Proposed: Use @ux/banner
+3. Benefits:
+   - Consistent UX
+   - Built-in accessibility
+   - Reduced maintenance
+
+Would you like to see the specific changes?
+```
+
+### 2. Progress Updates
+```
+Completed:
+✅ Updated Button imports
+✅ Converted prop types
+
+Next Step:
+📍 Update style usage
+   - Remove custom CSS
+   - Use UXCore classes
+
+Should I proceed with the style updates?
+```
+
+### 3. Requesting Clarification
+```
+I see two patterns for handling banner dismissal:
+1. Local state:
+   const [isOpen, setIsOpen] = useState(true);
+
+2. Prop-based:
+   const { onDismiss } = props;
+
+Which pattern should we standardize on?
+```
+
