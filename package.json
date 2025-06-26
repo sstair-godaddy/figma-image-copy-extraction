@@ -6,9 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "start": "node --experimental-specifier-resolution=node dist/figma_copy_extract.js",
-    "// IMPORTANT": "Read README.md Agent Instructions section before running 'start' command",
-    "// FIGMA_RULE": "Must follow .cursor/rules/Figma_Image_Agent.mdc workflow for text extraction"
+    "start": "node --experimental-specifier-resolution=node dist/express_extract.js",
+    "legacy": "node --experimental-specifier-resolution=node dist/figma_copy_extract.js",
+    "express": "node --experimental-specifier-resolution=node dist/express_extract.js",
+    "// START": "🚀 DEFAULT: Express mode combines extraction + ticket creation in one command",
+    "// LEGACY": "📁 Legacy mode for text extraction only (use 'npm run legacy')",
+    "// IMPORTANT": "Read README.md Agent Instructions section before running commands",
+    "// FIGMA_RULE": "Must follow Docs/COPY_EXTRACTION.md workflow for text extraction"
   },
   "keywords": [],
   "author": "",

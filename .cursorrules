@@ -4,11 +4,12 @@
 
 ### 📋 MANDATORY FIRST STEPS:
 1. **Read README.md Agent Instructions section** (contains workflow and role definitions)
-2. **For Figma operations**: Follow `.cursor/rules/Figma_Image_Agent.mdc` complete workflow
+2. **For Figma operations**: Follow `Docs/COPY_EXTRACTION.md` complete workflow
 3. **For code changes**: Follow `.cursor/rules/Agent_Standards.mdc` guidelines
+4. **For ticket creation**: Follow `Docs/TICKET_TEMPLATE.md`
 
 ### 🎯 Quick Reference:
-- **Figma text extraction**: Must read `.cursor/rules/Figma_Image_Agent.mdc` FIRST
+- **Figma text extraction**: Must read `Docs/COPY_EXTRACTION.md` FIRST
 - **Code modifications**: Must follow Agent_Standards cursor rules
 - **DO NOT** run commands without reading appropriate rule files first
 

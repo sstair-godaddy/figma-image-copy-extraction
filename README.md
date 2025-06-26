@@ -2,11 +2,52 @@
 
 > **🚨 AI AGENTS: Read "Agent Instructions" section below BEFORE any operations!**
 
+# Prerequisites
+- Read the COPY_EXTRACTION.md file
+- Read the TICKET_TEMPLATE.md file
+
+## 🚀 EXPRESS MODE (NEW!) - Streamlined Workflow
+
+**One command does it all!** Extract copy + create Jira ticket automatically.
+
+### Quick Start
+```bash
+# Build once (if needed)
+npm run build
+
+# Express extraction + ticket creation
+npm run express "your-figma-url-here" [area]
+```
+
+### Express Mode Features
+- ✅ **Smart Build**: Only rebuilds if source files changed
+- ✅ **Auto Text Combination**: Intelligently combines related text (e.g., "$9.99" + "/mo" = "$9.99/mo")
+- ✅ **Auto Ticket Creation**: Creates Jira ticket with extracted copy
+- ✅ **Default Settings**: No priority needed, UX review always required
+- ✅ **Parallel Processing**: Extraction and build happen simultaneously
+
+### Express Examples
+```bash
+# UPP area (default)
+npm run express "https://www.figma.com/design/..."
+
+# Specify different area
+npm run express "https://www.figma.com/design/..." VH
+
+# What it does automatically:
+# 1. Validates URL and checks build status
+# 2. Extracts and combines text intelligently  
+# 3. Creates formatted copy sections
+# 4. Generates Jira ticket with proper template
+```
+
+---
+
 ## Agent Instructions
 
 This project uses AI agents with specific roles and responsibilities:
 
-### Figma_Image_Agent
+### Copy Extraction
 
 **Role**: Application execution and text extraction operations
 
@@ -17,11 +58,17 @@ This project uses AI agents with specific roles and responsibilities:
 - Provide clear output of extracted text elements
 - Troubleshoot runtime issues and API errors
 
-**Mandatory Workflow (Complete in Order):**
-1. **FIRST**: Read `.cursor/rules/Figma_Image_Agent.mdc` completely
+**🚀 DEFAULT: Express Workflow (Complete in Order):**
+1. **FIRST**: Validate Figma URL format  
+2. **SECOND**: Run default command: `npm start "figma-url" [area]`
+3. **THIRD**: Review extracted copy sections
+4. **FOURTH**: Confirm auto-generated Jira ticket
+
+**Legacy Workflow (Text Only - Complete in Order):**
+1. **FIRST**: Read `Docs/COPY_EXTRACTION.md` completely
 2. **SECOND**: Complete the mandatory pre-execution checklist
 3. **THIRD**: Verify URL format and requirements  
-4. **FOURTH**: Execute npm start command
+4. **FOURTH**: Execute npm run legacy command
 5. **FIFTH**: Apply text combination logic to output (DO NOT just list raw elements)
 
 **Usage Guidelines**:
@@ -32,10 +79,13 @@ This project uses AI agents with specific roles and responsibilities:
 - Report any API errors with clear explanations
 - **CRITICAL**: Combine related text elements logically (e.g., "$14.99" + "/mo" = "$14.99/mo")
 
-**Command Pattern**:
+**Command Patterns**:
 ```bash
-# REMEMBER: Read .cursor/rules/Figma_Image_Agent.mdc FIRST
-npm start "https://www.figma.com/design/[file-id]/[file-name]?node-id=[node-id]"
+# DEFAULT MODE (Express - Recommended)
+npm start "https://www.figma.com/design/[file-id]/[file-name]?node-id=[node-id]" [area]
+
+# LEGACY MODE (Text Only)
+npm run legacy "https://www.figma.com/design/[file-id]/[file-name]?node-id=[node-id]"
 ```
 
 ### Agent_Standards
@@ -77,6 +127,7 @@ Simple AI tool to extract text content from Figma designs or images using the Fi
 ### 1. Install Dependencies
 
 ```bash
+git clone <REPOSITORY_URL>
 npm install
 ```
 
@@ -102,16 +153,30 @@ To obtain your Figma API token:
 
 ## Usage
 
-### 1. Build the Project
+### 🚀 Default Mode (Express) 
 
 ```bash
+# Build once
 npm run build
+
+# Extract + create ticket (UPP default) - NOW THE DEFAULT!
+npm start "your-figma-url-here"
+
+# Extract + create ticket (custom area)
+npm start "your-figma-url-here" VH
+
+# Alternative: Use express command directly
+npm run express "your-figma-url-here"
 ```
 
-### 2. Extract Text from Figma
+### Legacy Mode (Text Only)
 
 ```bash
-npm start "your-figma-url-here"
+# Build the project
+npm run build
+
+# Extract text only (no ticket creation)
+npm run legacy "your-figma-url-here"
 ```
 
 **Example:**
@@ -133,9 +198,19 @@ Your Figma URL should include the `node-id` parameter:
 
 The tool will:
 - Extract all visible text elements from the specified Figma node
-- Display text in numbered order
-- Automatically combine related text elements (e.g., "$14.99" + "/mo" = "$14.99/mo")
+- Automatically organize into logical sections (Header, Features, Pricing, etc.)
+- Intelligently combine related text elements (e.g., "$14.99" + "/mo" = "$14.99/mo")
 - Skip hidden text elements
+- **Express Mode**: Auto-create Jira ticket with extracted copy
+
+## Configuration
+
+Express mode uses `.figmarc.json` for defaults:
+- Default area: UPP
+- UX review: Always required
+- Translation: Not required (default)
+- Priority: Removed from workflow
+- Auto-ticket creation: Enabled
 
 ## Troubleshooting
 

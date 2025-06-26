@@ -1,0 +1,15 @@
+{
+  "express": {
+    "defaultArea": "UPP",
+    "autoCreateTicket": true,
+    "skipBuildIfCurrent": true,
+    "autoTextCombination": true,
+    "defaults": {
+      "requiresUXReview": true,
+      "requiresTranslation": false,
+      "component": "Dragons",
+      "labels": ["Dragons"],
+      "sprint": "Dragons in refinement"
+    }
+  }
+} 
